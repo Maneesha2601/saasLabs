@@ -20,13 +20,13 @@ const Pagination = (props) => {
 
     const onPrevious = () => onPageChange(currentPage - 1);
     const onNext = () => onPageChange(currentPage+1);
-    
+
     return(
       <div className="pagination_container">
         <ul>
           {currentPage >1 &&
             <li onClick={onPrevious } >
-              <div className="arrow_left"></div>
+              <button className="arrow_left" aria-label="Previous"></button>
             </li>
           }
           {paginationrange.map((pagenumber)=>{
@@ -44,7 +44,7 @@ const Pagination = (props) => {
           }
           {currentPage < Math.ceil(totalCount/pageSize) && 
             <li onClick={onNext}>
-              <div className="arrow_right"></div>
+              <button className="arrow_right" aria-label="Next"></button>
             </li>
           }
         </ul>

@@ -48,13 +48,19 @@ const Table = () =>{
                     </tr>
                 </thead>
                 <tbody>
-                    {currentTableData.map((e) => (
+                    {currentTableData.length === 0 ? (
+                      <tr>
+                        <td colSpan="3" style={{ textAlign: 'center' }}>
+                            No data available
+                        </td>
+                      </tr>)
+                    :(currentTableData.map((e) => (
                       <tr key={e["s.no"]}>
                           <td>{e["s.no"]}</td>
                           <td>{e["percentage.funded"]}</td>
                           <td>{e["amt.pledged"]}</td>
                       </tr>
-                    ))}
+                    )))}
                 </tbody>
             </table>
             <Pagination

@@ -36,13 +36,14 @@ export const usePagination = ({
     const firstPageIndex = 1;
     const lastPageIndex = totalPageCount;
 
+    // Case 1: Only right dots
     if (!shouldShowLeftDots && shouldShowRightDots) {
       let leftRangeEnd = 3 + 2 * siblingCount;
       let leftRange = range(1, leftRangeEnd);
 
       return [...leftRange, DOTS, totalPageCount];
     }
-
+    //Case2: Only Left dots
     if (shouldShowLeftDots && !shouldShowRightDots) {
       let rightRangeEnd = 3 + 2 * siblingCount;
       let rightRange = range(
@@ -52,6 +53,7 @@ export const usePagination = ({
       return [firstPageIndex, DOTS, ...rightRange];
     }
 
+    // Case 3: Both left and right dots
     if (shouldShowLeftDots && shouldShowRightDots) {
       let middleRange = range(leftSiblingIndex, rightSiblingIndex);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];

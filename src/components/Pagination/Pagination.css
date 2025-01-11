@@ -34,17 +34,13 @@
     color: black;
 }
 
-.pagination_container .pagenumber_list.active {
-    background-color: #4CAF50;
-    color: white;
-    pointer-events: none;
-}
-
 .pagination_container .arrow_left,
 .pagination_container .arrow_right {
     width: 0; 
     height: 0; 
     border-style: solid;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .pagination_container .arrow_left {
@@ -57,19 +53,7 @@
     border-color: transparent transparent transparent black;
 }
 
-.pagination_container .arrow_left.disabled {
-    border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
-    cursor: not-allowed;
+.pagination_container .pagination_item {
+    cursor:not-allowed;
 }
 
-.arrow_right.disabled {
-    border-color: transparent transparent transparent rgba(0, 0, 0, 0.2) ;
-    cursor: not-allowed;
-}
-
-.pagination_container li.disabled {
-    color: rgba(0, 0, 0, 0.2);
-    cursor: not-allowed;
-    background-color: #f9f9f9;
-    border-color: rgba(0, 0, 0, 0.2);
-}
